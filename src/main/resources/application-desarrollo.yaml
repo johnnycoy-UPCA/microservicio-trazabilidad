@@ -1,0 +1,4 @@
+spring:
+  mongodb:
+    uri: ${MONGODB_URI:mongodb://localhost:27017/trazabilidad}
+    database: ${MONGODB_DATABASE:trazabilidad}
