@@ -20,12 +20,18 @@ public class SeguridadDesarrolloConfiguracion {
                                 .requestMatchers(
                                         "/swagger-ui.html",
                                         "/swagger-ui/**",
-                                        "/v3/api-docs/**"
+                                        "/v3/api-docs/**",
+                                        "/api/v1/trazabilidad/eventos"
                                 )
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
-                );
+                )
+				.csrf(csrf -> csrf
+						.ignoringRequestMatchers(
+								"/api/v1/trazabilidad/eventos"
+						)
+				);
 
         return seguridadHttp.build();
     }
