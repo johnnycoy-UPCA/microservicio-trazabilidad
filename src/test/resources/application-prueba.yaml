@@ -2,3 +2,11 @@ spring:
   mongodb:
     uri: mongodb://localhost:27017/trazabilidad_prueba
     database: trazabilidad_prueba
+
+  data:
+    mongodb:
+      auto-index-creation: false
+
+seguridad:
+  interna:
+    api-key: clave-interna-prueba-2026

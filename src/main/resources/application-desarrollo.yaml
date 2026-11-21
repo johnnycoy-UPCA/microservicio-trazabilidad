@@ -2,3 +2,11 @@ spring:
   mongodb:
     uri: ${MONGODB_URI:mongodb://localhost:27017/trazabilidad}
     database: ${MONGODB_DATABASE:trazabilidad}
+
+  data:
+    mongodb:
+      auto-index-creation: true
+
+seguridad:
+  interna:
+    api-key: ${TRAZABILIDAD_API_KEY}
