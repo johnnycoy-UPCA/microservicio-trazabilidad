@@ -7,6 +7,7 @@ import co.edu.clase.microservicio_trazabilidad.util.constantes.ConstantesApi;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -39,30 +40,31 @@ public class EventoTrazabilidadControladorRest {
     @Operation(
             summary = "Registrar transición",
             description =
-                    "Registra una transición válida "
-                            + "del estado de un pedido"
+				"Registra una transición válida "
+				+ "del estado de un pedido"
     )
+    @SecurityRequirement(name = "apiKeyInterna")
     @ApiResponses({
-            @ApiResponse(
-                    responseCode = "201",
-                    description =
-                            "Transición registrada correctamente"
-            ),
-            @ApiResponse(
-                    responseCode = "400",
-                    description =
-                            "Datos o transición inválida"
-            ),
-            @ApiResponse(
-                    responseCode = "409",
-                    description =
-                            "La transición ya fue registrada"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description =
-                            "Error interno del microservicio"
-            )
+		@ApiResponse(
+			responseCode = "201",
+			description = "Transición registrada correctamente"
+		),
+		@ApiResponse(
+			responseCode = "400",
+			description = "Datos o transición inválida"
+		),
+		@ApiResponse(
+			responseCode = "401",
+			description = "Credencial interna ausente o inválida"
+		),
+		@ApiResponse(
+			responseCode = "409",
+			description = "La transición ya fue registrada"
+		),
+		@ApiResponse(
+			responseCode = "500",
+			description = "Error interno del microservicio"
+		)
     })
     @PostMapping
     public ResponseEntity<

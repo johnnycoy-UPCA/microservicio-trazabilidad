@@ -29,6 +29,12 @@ public final class MensajesError {
 	public static final String ERROR_INTERNO =
 			"Ocurrió un error interno en el servicio";
 
+	public static final String CREDENCIAL_INTERNA_REQUERIDA =
+			"La solicitud requiere una credencial interna";
+
+	public static final String CREDENCIAL_INTERNA_INVALIDA =
+			"La credencial interna no es válida";
+
     private MensajesError() {
         throw new IllegalStateException(
             "No se permite crear instancias "

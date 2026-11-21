@@ -14,6 +14,9 @@ public final class CodigosError {
 
     public static final String ERROR_INTERNO = "SYS-001";
 
+    public static final String CREDENCIAL_INTERNA_REQUERIDA = "SEG-001";
+    public static final String CREDENCIAL_INTERNA_INVALIDA = "SEG-002";
+
     private CodigosError() {
         throw new IllegalStateException(
             "No se permite crear instancias "

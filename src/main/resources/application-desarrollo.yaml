@@ -6,3 +6,7 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
+
+seguridad:
+  interna:
+    api-key: ${TRAZABILIDAD_API_KEY}

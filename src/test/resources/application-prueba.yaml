@@ -6,3 +6,7 @@ spring:
   data:
     mongodb:
       auto-index-creation: false
+
+seguridad:
+  interna:
+    api-key: clave-interna-prueba-2026
