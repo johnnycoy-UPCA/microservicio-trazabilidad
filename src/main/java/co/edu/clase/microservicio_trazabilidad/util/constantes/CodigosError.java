@@ -8,6 +8,7 @@ public final class CodigosError {
     public static final String ESTADO_NUEVO_OBLIGATORIO = "TRZ-004";
     public static final String TRANSICION_INVALIDA = "TRZ-005";
     public static final String EVENTO_DUPLICADO = "TRZ-006";
+    public static final String PEDIDO_NO_ENCONTRADO = "TRZ-007";
 
     public static final String SOLICITUD_INVALIDA = "VAL-001";
     public static final String CUERPO_SOLICITUD_INVALIDO = "VAL-002";
@@ -16,6 +17,10 @@ public final class CodigosError {
 
     public static final String CREDENCIAL_INTERNA_REQUERIDA = "SEG-001";
     public static final String CREDENCIAL_INTERNA_INVALIDA = "SEG-002";
+    public static final String TOKEN_INVALIDO = "SEG-003";
+    public static final String TOKEN_EXPIRADO = "SEG-004";
+    public static final String AUTENTICACION_REQUERIDA = "SEG-005";
+    public static final String ACCESO_DENEGADO = "SEG-006";
 
     private CodigosError() {
         throw new IllegalStateException(
