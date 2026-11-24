@@ -15,6 +15,7 @@ import co.edu.clase.microservicio_trazabilidad.util.constantes.ConstantesSegurid
 public class OpenApiConfiguracion {
 
 	private static final String ESQUEMA_SEGURIDAD_INTERNA = "apiKeyInterna";
+	private static final String ESQUEMA_AUTENTICACION_BEARER = "autenticacionBearer";
 
     @Bean
     public OpenAPI documentacionApi() {
@@ -36,16 +37,27 @@ public class OpenApiConfiguracion {
 				.addSecuritySchemes(
 					ESQUEMA_SEGURIDAD_INTERNA,
 					new SecurityScheme()
-							.type(
-								SecurityScheme.Type.APIKEY
-							)
-							.in(
-								SecurityScheme.In.HEADER
-							)
+						.type(
+							SecurityScheme.Type.APIKEY
+						)
+						.in(
+							SecurityScheme.In.HEADER
+						)
+						.name(
+							ConstantesSeguridad.ENCABEZADO_API_KEY
+						)
+				)
+				.addSecuritySchemes(
+						ESQUEMA_AUTENTICACION_BEARER,
+						new SecurityScheme()
 							.name(
-								ConstantesSeguridad
-										.ENCABEZADO_API_KEY
+								ConstantesSeguridad.ENCABEZADO_AUTORIZACION
 							)
+							.type(
+									SecurityScheme.Type.HTTP
+							)
+							.scheme("bearer")
+							.bearerFormat("JWT")
 				)
             );
 	}

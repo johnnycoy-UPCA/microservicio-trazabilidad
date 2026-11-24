@@ -20,6 +20,9 @@ public final class MensajesError {
     public static final String EVENTO_DUPLICADO =
             "La transición ya fue registrada";
 
+	public static final String PEDIDO_NO_ENCONTRADO =
+            "No existe trazabilidad para el pedido solicitado";
+
 	public static final String SOLICITUD_INVALIDA =
 			"La solicitud contiene datos inválidos";
 
@@ -34,6 +37,19 @@ public final class MensajesError {
 
 	public static final String CREDENCIAL_INTERNA_INVALIDA =
 			"La credencial interna no es válida";
+
+	public static final String TOKEN_INVALIDO =
+            "El token de autenticación no es válido";
+
+    public static final String TOKEN_EXPIRADO =
+            "El token de autenticación ha expirado";
+
+    public static final String AUTENTICACION_REQUERIDA =
+            "La solicitud requiere autenticación";
+
+    public static final String ACCESO_DENEGADO =
+            "El usuario autenticado no tiene permisos "
+            + "para realizar esta operación";
 
     private MensajesError() {
         throw new IllegalStateException(

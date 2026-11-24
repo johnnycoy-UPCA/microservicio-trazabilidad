@@ -8,5 +8,7 @@ spring:
       auto-index-creation: false
 
 seguridad:
+  jwt:
+    secreto: MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=
   interna:
     api-key: clave-interna-prueba-2026

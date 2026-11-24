@@ -10,7 +10,11 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import co.edu.clase.microservicio_trazabilidad.infraestructura.entrada.rest.seguridad.FiltroApiKeyInterna;
+import co.edu.clase.microservicio_trazabilidad.infraestructura.entrada.rest.seguridad.FiltroAutenticacionJwt;
+import co.edu.clase.microservicio_trazabilidad.infraestructura.entrada.rest.seguridad.ManejadorAccesoDenegado;
+import co.edu.clase.microservicio_trazabilidad.infraestructura.entrada.rest.seguridad.PuntoEntradaNoAutorizado;
 import co.edu.clase.microservicio_trazabilidad.util.constantes.ConstantesApi;
+import co.edu.clase.microservicio_trazabilidad.util.enumeraciones.PerfilUsuario;
 
 @Configuration
 @Profile("desarrollo")
@@ -19,7 +23,10 @@ public class SeguridadDesarrolloConfiguracion {
     @Bean
     public SecurityFilterChain filtroSeguridadDesarrollo(
             HttpSecurity seguridadHttp,
-			FiltroApiKeyInterna filtroApiKeyInterna)
+			FiltroApiKeyInterna filtroApiKeyInterna,
+			FiltroAutenticacionJwt filtroAutenticacionJwt,
+            PuntoEntradaNoAutorizado puntoEntradaNoAutorizado,
+            ManejadorAccesoDenegado manejadorAccesoDenegado)
 			throws Exception {
 
         seguridadHttp
@@ -30,7 +37,17 @@ public class SeguridadDesarrolloConfiguracion {
 				)
 			)
 			.sessionManagement(sesion -> sesion
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.sessionCreationPolicy(
+					SessionCreationPolicy.STATELESS
+				)
+			)
+			.exceptionHandling(excepciones -> excepciones
+				.authenticationEntryPoint(
+					puntoEntradaNoAutorizado
+				)
+				.accessDeniedHandler(
+					manejadorAccesoDenegado
+				)
 			)
 			.authorizeHttpRequests(autorizacion ->
 				autorizacion
@@ -46,11 +63,22 @@ public class SeguridadDesarrolloConfiguracion {
 						ConstantesApi.API_EVENTOS
 					)
 					.hasRole("INTERNAL")
+					.requestMatchers(
+						HttpMethod.GET,
+						ConstantesApi
+							.API_CONSULTA_TRAZABILIDAD
+							+ "/*"
+					)
+					.hasRole(PerfilUsuario.CLIENTE.name())
 					.anyRequest()
 					.authenticated()
 			)
 			.addFilterBefore(
 				filtroApiKeyInterna,
+				UsernamePasswordAuthenticationFilter.class
+			)
+			.addFilterBefore(
+				filtroAutenticacionJwt,
 				UsernamePasswordAuthenticationFilter.class
 			);
 

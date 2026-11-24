@@ -2,6 +2,9 @@ package co.edu.clase.microservicio_trazabilidad.infraestructura.salida.persisten
 
 import co.edu.clase.microservicio_trazabilidad.infraestructura.salida.persistencia.documento.EventoTrazabilidadDocumento;
 import co.edu.clase.microservicio_trazabilidad.util.enumeraciones.EstadoPedido;
+
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface EventoTrazabilidadMongoRepositorio
@@ -14,4 +17,10 @@ public interface EventoTrazabilidadMongoRepositorio
             EstadoPedido estadoAnterior,
             EstadoPedido estadoNuevo
     );
+
+	List<EventoTrazabilidadDocumento>
+	findByPedidoIdAndClienteIdOrderByFechaEventoAsc(
+			Long pedidoId,
+			Long clienteId
+	);
 }
