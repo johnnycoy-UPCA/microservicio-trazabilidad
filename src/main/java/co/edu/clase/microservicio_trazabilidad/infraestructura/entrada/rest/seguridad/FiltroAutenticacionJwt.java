@@ -95,7 +95,8 @@ public class FiltroAutenticacionJwt
                 new UsuarioAutenticado(
                         tokenJwtServicio.extraerUsuarioId(token),
                         tokenJwtServicio.extraerCorreo(token),
-                        perfil
+                        perfil,
+                        token
                 );
 
         SimpleGrantedAuthority autoridad =

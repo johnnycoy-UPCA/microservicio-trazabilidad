@@ -7,5 +7,6 @@ public enum CategoriaError {
     NO_ENCONTRADO,
     NO_AUTORIZADO,
     ACCESO_DENEGADO,
+    DEPENDENCIA_EXTERNA,
     ERROR_INTERNO
 }
