@@ -70,6 +70,14 @@ public class SeguridadDesarrolloConfiguracion {
 							+ "/*"
 					)
 					.hasRole(PerfilUsuario.CLIENTE.name())
+					.requestMatchers(
+						HttpMethod.GET,
+						ConstantesApi.API_RESTAURANTES_TRAZABILIDAD
+									+ "/*/pedidos/tiempos",
+						ConstantesApi.API_RESTAURANTES_TRAZABILIDAD
+									+ "/*/empleados/eficiencia"
+					)
+					.hasRole(PerfilUsuario.PROPIETARIO.name())
 					.anyRequest()
 					.authenticated()
 			)

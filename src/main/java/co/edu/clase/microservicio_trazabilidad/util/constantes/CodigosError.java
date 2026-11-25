@@ -9,6 +9,9 @@ public final class CodigosError {
     public static final String TRANSICION_INVALIDA = "TRZ-005";
     public static final String EVENTO_DUPLICADO = "TRZ-006";
     public static final String PEDIDO_NO_ENCONTRADO = "TRZ-007";
+    public static final String RESTAURANTE_NO_PERTENECE_PROPIETARIO = "TRZ-008";
+    public static final String PLAZOLETA_NO_DISPONIBLE = "TRZ-009";
+    public static final String RESTAURANTE_NO_ENCONTRADO = "TRZ-010";
 
     public static final String SOLICITUD_INVALIDA = "VAL-001";
     public static final String CUERPO_SOLICITUD_INVALIDO = "VAL-002";

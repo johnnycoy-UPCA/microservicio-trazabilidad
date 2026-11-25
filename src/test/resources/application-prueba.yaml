@@ -12,3 +12,7 @@ seguridad:
     secreto: MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=
   interna:
     api-key: clave-interna-prueba-2026
+
+servicios:
+  plazoleta:
+    url-base: http://localhost:8082

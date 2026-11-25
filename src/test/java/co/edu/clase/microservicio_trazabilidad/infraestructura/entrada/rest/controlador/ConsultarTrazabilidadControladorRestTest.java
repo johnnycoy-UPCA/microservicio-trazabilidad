@@ -140,7 +140,8 @@ class ConsultarTrazabilidadControladorRestTest {
                     new UsuarioAutenticado(
                             CLIENTE_ID,
                             "cliente@correo.com",
-                            PerfilUsuario.CLIENTE
+                            PerfilUsuario.CLIENTE,
+                            "token-cliente"
                     );
 
             UsernamePasswordAuthenticationToken autenticacion =

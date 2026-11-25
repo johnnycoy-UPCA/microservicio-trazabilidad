@@ -81,10 +81,8 @@ public class ManejadorGlobalExcepciones {
         return ResponseEntity.badRequest().body(
                 construirRespuesta(
                         HttpStatus.BAD_REQUEST,
-                        CodigosError
-                                .CUERPO_SOLICITUD_INVALIDO,
-                        MensajesError
-                                .CUERPO_SOLICITUD_INVALIDO,
+                        CodigosError.CUERPO_SOLICITUD_INVALIDO,
+                        MensajesError.CUERPO_SOLICITUD_INVALIDO,
                         solicitud.getRequestURI(),
                         Map.of()
                 )
@@ -99,12 +97,10 @@ public class ManejadorGlobalExcepciones {
 
         return ResponseEntity
                 .status(
-                        HttpStatus
-                                .INTERNAL_SERVER_ERROR
+                        HttpStatus.INTERNAL_SERVER_ERROR
                 )
                 .body(construirRespuesta(
-                        HttpStatus
-                                .INTERNAL_SERVER_ERROR,
+                        HttpStatus.INTERNAL_SERVER_ERROR,
                         CodigosError.ERROR_INTERNO,
                         MensajesError.ERROR_INTERNO,
                         solicitud.getRequestURI(),
@@ -136,12 +132,10 @@ public class ManejadorGlobalExcepciones {
             case VALIDACION -> HttpStatus.BAD_REQUEST;
             case CONFLICTO -> HttpStatus.CONFLICT;
             case NO_ENCONTRADO -> HttpStatus.NOT_FOUND;
-            case NO_AUTORIZADO ->
-                    HttpStatus.UNAUTHORIZED;
-            case ACCESO_DENEGADO ->
-                    HttpStatus.FORBIDDEN;
-            case ERROR_INTERNO ->
-                    HttpStatus.INTERNAL_SERVER_ERROR;
+            case NO_AUTORIZADO -> HttpStatus.UNAUTHORIZED;
+            case ACCESO_DENEGADO -> HttpStatus.FORBIDDEN;
+			case DEPENDENCIA_EXTERNA -> HttpStatus.BAD_GATEWAY;
+            case ERROR_INTERNO -> HttpStatus.INTERNAL_SERVER_ERROR;
         };
     }
 }

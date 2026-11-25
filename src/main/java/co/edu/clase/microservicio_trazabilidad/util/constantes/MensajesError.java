@@ -2,26 +2,26 @@ package co.edu.clase.microservicio_trazabilidad.util.constantes;
 
 public final class MensajesError {
 
-    public static final String PEDIDO_OBLIGATORIO =
-            "El identificador del pedido es obligatorio";
+	public static final String PEDIDO_OBLIGATORIO =
+			"El identificador del pedido es obligatorio";
 
-    public static final String CLIENTE_OBLIGATORIO =
-            "El identificador del cliente es obligatorio";
+	public static final String CLIENTE_OBLIGATORIO =
+			"El identificador del cliente es obligatorio";
 
-    public static final String RESTAURANTE_OBLIGATORIO =
-            "El identificador del restaurante es obligatorio";
+	public static final String RESTAURANTE_OBLIGATORIO =
+			"El identificador del restaurante es obligatorio";
 
-    public static final String ESTADO_NUEVO_OBLIGATORIO =
-            "El estado nuevo del pedido es obligatorio";
+	public static final String ESTADO_NUEVO_OBLIGATORIO =
+			"El estado nuevo del pedido es obligatorio";
 
-    public static final String TRANSICION_INVALIDA =
-            "La transición de estado del pedido no es válida";
+	public static final String TRANSICION_INVALIDA =
+			"La transición de estado del pedido no es válida";
 
-    public static final String EVENTO_DUPLICADO =
-            "La transición ya fue registrada";
+	public static final String EVENTO_DUPLICADO =
+			"La transición ya fue registrada";
 
 	public static final String PEDIDO_NO_ENCONTRADO =
-            "No existe trazabilidad para el pedido solicitado";
+			"No existe trazabilidad para el pedido solicitado";
 
 	public static final String SOLICITUD_INVALIDA =
 			"La solicitud contiene datos inválidos";
@@ -39,22 +39,32 @@ public final class MensajesError {
 			"La credencial interna no es válida";
 
 	public static final String TOKEN_INVALIDO =
-            "El token de autenticación no es válido";
+			"El token de autenticación no es válido";
 
-    public static final String TOKEN_EXPIRADO =
-            "El token de autenticación ha expirado";
+	public static final String TOKEN_EXPIRADO =
+			"El token de autenticación ha expirado";
 
-    public static final String AUTENTICACION_REQUERIDA =
-            "La solicitud requiere autenticación";
+	public static final String AUTENTICACION_REQUERIDA =
+			"La solicitud requiere autenticación";
 
-    public static final String ACCESO_DENEGADO =
-            "El usuario autenticado no tiene permisos "
-            + "para realizar esta operación";
+	public static final String ACCESO_DENEGADO =
+			"El usuario autenticado no tiene permisos "
+			+ "para realizar esta operación";
 
-    private MensajesError() {
-        throw new IllegalStateException(
-            "No se permite crear instancias "
-            + "de una clase de constantes"
-        );
-    }
+    public static final String RESTAURANTE_NO_ENCONTRADO =
+            "El restaurante solicitado no fue encontrado";
+
+    public static final String RESTAURANTE_NO_PERTENECE_PROPIETARIO =
+            "El restaurante no pertenece al propietario autenticado";
+
+    public static final String PLAZOLETA_NO_DISPONIBLE =
+            "No fue posible validar el restaurante "
+            + "en el Microservicio Plazoleta";
+
+	private MensajesError() {
+		throw new IllegalStateException(
+			"No se permite crear instancias "
+			+ "de una clase de constantes"
+		);
+}
 }

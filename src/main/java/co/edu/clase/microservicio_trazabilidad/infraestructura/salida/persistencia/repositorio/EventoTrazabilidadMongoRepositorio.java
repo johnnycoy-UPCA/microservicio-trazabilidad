@@ -23,4 +23,9 @@ public interface EventoTrazabilidadMongoRepositorio
 			Long pedidoId,
 			Long clienteId
 	);
+
+    List<EventoTrazabilidadDocumento>
+    findByRestauranteIdOrderByFechaEventoAsc(
+            Long restauranteId
+    );
 }
